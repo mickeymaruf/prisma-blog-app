@@ -73,7 +73,19 @@ const getPosts = async ({
   };
 };
 
+const getPostById = async (id: string) => {
+  return await prisma.post.update({
+    where: { id },
+    data: {
+      views: {
+        increment: 1,
+      },
+    },
+  });
+};
+
 export const PostService = {
   createPost,
   getPosts,
+  getPostById,
 };
