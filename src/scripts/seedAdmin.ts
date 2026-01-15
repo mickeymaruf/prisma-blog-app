@@ -1,0 +1,3 @@
+const seedAdmin = async () => {};
+
+seedAdmin();
