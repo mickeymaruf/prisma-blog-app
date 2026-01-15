@@ -18,6 +18,8 @@ const getPosts = async ({
   limit,
   page,
   skip,
+  orderBy,
+  order,
 }: {
   search: string;
   tags: string[];
@@ -27,6 +29,8 @@ const getPosts = async ({
   limit: number;
   page: number;
   skip: number;
+  orderBy: string;
+  order: string;
 }) => {
   const filters: PostWhereInput[] = [];
 
@@ -50,6 +54,9 @@ const getPosts = async ({
       where: { AND: filters },
       take: limit,
       skip: skip,
+      orderBy: {
+        [orderBy]: order,
+      },
     }),
     prisma.post.count({
       where: { AND: filters },
