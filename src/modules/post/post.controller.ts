@@ -5,10 +5,14 @@ import paginationSortingHelper from "../../helpers/paginationSortingHelper";
 
 const createPost = async (req: Request, res: Response) => {
   try {
-    const result = await PostService.createPost(
-      req.user?.id as string,
-      req.body
-    );
+    const userId = req.user?.id;
+    if (!userId)
+      return res.status(401).json({
+        success: false,
+        message: "Unauthorized access!",
+      });
+
+    const result = await PostService.createPost(userId, req.body);
 
     res.status(201).json({
       success: true,
@@ -72,7 +76,7 @@ const getPostById = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
 
-    if (!id) throw new Error("Provide an ID of the post!");
+    if (!id) throw new Error("postId is required");
     const result = await PostService.getPostById(id);
 
     res.status(200).json({

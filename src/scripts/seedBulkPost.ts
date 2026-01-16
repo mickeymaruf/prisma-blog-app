@@ -1,6 +1,8 @@
 import { prisma } from "../lib/prisma";
 
 const seedBulkPost = async () => {
+  const authorId = "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E";
+
   try {
     await prisma.post.createMany({
       data: [
@@ -11,7 +13,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "DRAFT",
           tags: ["tech"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 2",
@@ -20,7 +22,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "PUBLISHED",
           tags: ["news"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 3",
@@ -29,7 +31,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "ARCHIVED",
           tags: ["tips"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -39,7 +41,7 @@ const seedBulkPost = async () => {
           isFeatured: true,
           status: "PUBLISHED",
           tags: ["mobile"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 5",
@@ -48,7 +50,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "DRAFT",
           tags: ["ai"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 6",
@@ -57,7 +59,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "ARCHIVED",
           tags: ["web"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -67,7 +69,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "PUBLISHED",
           tags: ["design"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 8",
@@ -76,7 +78,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "DRAFT",
           tags: ["react"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 9",
@@ -85,7 +87,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "ARCHIVED",
           tags: ["node"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -95,7 +97,7 @@ const seedBulkPost = async () => {
           isFeatured: true,
           status: "PUBLISHED",
           tags: ["javascript"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -105,7 +107,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "DRAFT",
           tags: ["css"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 12",
@@ -114,7 +116,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "PUBLISHED",
           tags: ["html"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 13",
@@ -123,7 +125,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "ARCHIVED",
           tags: ["backend"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -133,7 +135,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "PUBLISHED",
           tags: ["frontend"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 15",
@@ -142,7 +144,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "DRAFT",
           tags: ["dev"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -152,7 +154,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "ARCHIVED",
           tags: ["cloud"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 17",
@@ -161,7 +163,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "PUBLISHED",
           tags: ["aws"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 18",
@@ -170,7 +172,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "DRAFT",
           tags: ["docker"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -180,7 +182,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "PUBLISHED",
           tags: ["kubernetes"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 20",
@@ -189,7 +191,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "ARCHIVED",
           tags: ["database"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -199,7 +201,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "DRAFT",
           tags: ["postgres"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 22",
@@ -208,7 +210,7 @@ const seedBulkPost = async () => {
           isFeatured: true,
           status: "PUBLISHED",
           tags: ["prisma"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 23",
@@ -217,7 +219,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "ARCHIVED",
           tags: ["sql"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -227,7 +229,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "PUBLISHED",
           tags: ["api"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 25",
@@ -236,7 +238,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "DRAFT",
           tags: ["rest"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -246,7 +248,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "ARCHIVED",
           tags: ["graphql"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 27",
@@ -255,7 +257,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "PUBLISHED",
           tags: ["auth"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 28",
@@ -264,7 +266,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "DRAFT",
           tags: ["jwt"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -274,7 +276,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "PUBLISHED",
           tags: ["security"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 30",
@@ -283,7 +285,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "ARCHIVED",
           tags: ["testing"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -293,7 +295,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "DRAFT",
           tags: ["jest"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 32",
@@ -302,7 +304,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "PUBLISHED",
           tags: ["vitest"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 33",
@@ -311,7 +313,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "ARCHIVED",
           tags: ["ci"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -321,7 +323,7 @@ const seedBulkPost = async () => {
           isFeatured: true,
           status: "PUBLISHED",
           tags: ["cd"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 35",
@@ -330,7 +332,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "DRAFT",
           tags: ["devops"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -340,7 +342,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "ARCHIVED",
           tags: ["linux"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 37",
@@ -349,7 +351,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "PUBLISHED",
           tags: ["bash"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 38",
@@ -358,7 +360,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "DRAFT",
           tags: ["cli"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -368,7 +370,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "PUBLISHED",
           tags: ["performance"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 40",
@@ -377,7 +379,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "ARCHIVED",
           tags: ["optimization"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -387,7 +389,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "DRAFT",
           tags: ["seo"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 42",
@@ -396,7 +398,7 @@ const seedBulkPost = async () => {
           isFeatured: true,
           status: "PUBLISHED",
           tags: ["marketing"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 43",
@@ -405,7 +407,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "ARCHIVED",
           tags: ["analytics"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -415,7 +417,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "PUBLISHED",
           tags: ["startup"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 45",
@@ -424,7 +426,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "DRAFT",
           tags: ["saas"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -434,7 +436,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "ARCHIVED",
           tags: ["product"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 47",
@@ -443,7 +445,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "PUBLISHED",
           tags: ["ux"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 48",
@@ -452,7 +454,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "DRAFT",
           tags: ["ui"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
 
         {
@@ -462,7 +464,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "PUBLISHED",
           tags: ["growth"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
         {
           title: "Post 50",
@@ -471,7 +473,7 @@ const seedBulkPost = async () => {
           isFeatured: false,
           status: "ARCHIVED",
           tags: ["business"],
-          authorId: "it8rWZmE0Pn00jtKkrKPxOUgpoQ7mK2E",
+          authorId,
         },
       ],
     });
