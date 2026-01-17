@@ -3,15 +3,11 @@ import {
   Post,
   PostStatus,
 } from "../../../generated/prisma/client";
-import { PostWhereInput } from "../../../generated/prisma/models";
+import {
+  PostUpdateInput,
+  PostWhereInput,
+} from "../../../generated/prisma/models";
 import { prisma } from "../../lib/prisma";
-
-const createPost = async (
-  userId: string,
-  data: Omit<Post, "id" | "createdAt" | "updatedAt" | "authorId">
-) => {
-  return await prisma.post.create({ data: { ...data, authorId: userId } });
-};
 
 const getPosts = async ({
   search,
@@ -127,8 +123,78 @@ const getPostById = async (id: string) => {
   });
 };
 
+const getMyPosts = async (authorId: string) => {
+  await prisma.user.findUniqueOrThrow({
+    where: { id: authorId, status: "ACTIVE" },
+  });
+
+  return await prisma.post.findMany({
+    where: {
+      authorId,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+    include: { _count: { select: { comments: true } } },
+  });
+};
+
+const createPost = async (
+  userId: string,
+  data: Omit<Post, "id" | "createdAt" | "updatedAt" | "authorId">
+) => {
+  return await prisma.post.create({ data: { ...data, authorId: userId } });
+};
+
+const updatePost = async (
+  id: string,
+  authorId: string,
+  data: PostUpdateInput,
+  isAdmin: boolean
+) => {
+  const postData = await prisma.post.findUniqueOrThrow({
+    where: {
+      id,
+    },
+    select: {
+      id: true,
+      authorId: true,
+    },
+  });
+
+  if (!isAdmin && postData.authorId !== authorId) {
+    throw new Error("You don't have permission to modify this post!");
+  }
+
+  if (!isAdmin) {
+    delete data.isFeatured;
+  }
+
+  return await prisma.post.update({
+    where: { id },
+    data,
+  });
+};
+
+const deletePost = async (id: string, authorId: string, isAdmin: boolean) => {
+  console.log("postData");
+  const postData = await prisma.post.findUniqueOrThrow({
+    where: { id },
+    select: { id: true, authorId: true },
+  });
+
+  if (!isAdmin && postData.authorId !== authorId) {
+    throw new Error("You don't have permission to delete this post!");
+  }
+
+  return await prisma.post.delete({ where: { id } });
+};
+
 export const PostService = {
   createPost,
   getPosts,
   getPostById,
+  getMyPosts,
+  updatePost,
+  deletePost,
 };
