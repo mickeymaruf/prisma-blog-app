@@ -8,6 +8,7 @@ import {
   PostWhereInput,
 } from "../../../generated/prisma/models";
 import { prisma } from "../../lib/prisma";
+import { UserRole } from "../../middlewares/auth";
 
 const getPosts = async ({
   search,
@@ -177,7 +178,6 @@ const updatePost = async (
 };
 
 const deletePost = async (id: string, authorId: string, isAdmin: boolean) => {
-  console.log("postData");
   const postData = await prisma.post.findUniqueOrThrow({
     where: { id },
     select: { id: true, authorId: true },
@@ -190,6 +190,48 @@ const deletePost = async (id: string, authorId: string, isAdmin: boolean) => {
   return await prisma.post.delete({ where: { id } });
 };
 
+const getStats = async () => {
+  const [
+    totalPosts,
+    publishedPosts,
+    draftPosts,
+    archivedPosts,
+    totalComments,
+    approvedComments,
+    rejectedComments,
+    totalUsers,
+    adminCount,
+    userCount,
+    totalPostViews,
+  ] = await prisma.$transaction([
+    prisma.post.count(),
+    prisma.post.count({ where: { status: PostStatus.PUBLISHED } }),
+    prisma.post.count({ where: { status: PostStatus.DRAFT } }),
+    prisma.post.count({ where: { status: PostStatus.ARCHIVED } }),
+    prisma.comment.count(),
+    prisma.comment.count({ where: { status: CommentStatus.APPROVED } }),
+    prisma.comment.count({ where: { status: CommentStatus.REJECT } }),
+    prisma.user.count(),
+    prisma.user.count({ where: { role: UserRole.ADMIN } }),
+    prisma.user.count({ where: { role: UserRole.USER } }),
+    prisma.post.aggregate({ _sum: { views: true } }),
+  ]);
+
+  return {
+    totalPosts,
+    publishedPosts,
+    draftPosts,
+    archivedPosts,
+    totalComments,
+    approvedComments,
+    rejectedComments,
+    totalUsers,
+    adminCount,
+    userCount,
+    totalPostViews: totalPostViews._sum.views,
+  };
+};
+
 export const PostService = {
   createPost,
   getPosts,
@@ -197,4 +239,5 @@ export const PostService = {
   getMyPosts,
   updatePost,
   deletePost,
+  getStats,
 };

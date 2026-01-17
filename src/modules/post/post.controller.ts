@@ -164,7 +164,22 @@ const deletePost = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error: any) {
-    console.log(error);
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+const getStats = async (req: Request, res: Response) => {
+  try {
+    const result = await PostService.getStats();
+
+    res.status(200).json({
+      success: true,
+      data: result,
+    });
+  } catch (error: any) {
     res.status(400).json({
       success: false,
       message: error.message,
@@ -179,4 +194,5 @@ export const PostController = {
   getMyPosts,
   updatePost,
   deletePost,
+  getStats,
 };
